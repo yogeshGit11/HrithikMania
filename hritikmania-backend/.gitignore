@@ -1,1 +1,72 @@
-/media
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+db.sqlite3-journal
+
+__pycache__/
+*.pyc
+
+# Ignore migrations except the initial ones
+*/migrations/*.pyc
+*/migrations/__pycache__/
+# If you want to ignore all migrations uncomment below:
+# */migrations/*
+
+# If you want to keep migrations but ignore .pyc inside migrations:
+# */migrations/*.pyc
+
+# Ignore media folder (user uploads)
+media/
+
+# Ignore static files collected by collectstatic
+staticfiles/
+
+# Ignore environment variables and virtual environments
+.env
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Mac system files
+.DS_Store
+
+# Test coverage reports
+.coverage
+htmlcov/
+
+# Pytest cache
+.pytest_cache/
+
+# mypy cache
+.mypy_cache/
+
+# Celery stuff
+celerybeat-schedule
+
+# Logs
+*.log
+
+# If you use pipenv
+Pipfile.lock
+
+# If you use poetry
+poetry.lock
+
+movie_data.csv
