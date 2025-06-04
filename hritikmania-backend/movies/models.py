@@ -8,7 +8,7 @@ class Movie(models.Model):
     starring = models.TextField()
     release_date = models.DateField()
     box_office_collection = models.CharField(max_length=50)
-    source_file = models.FileField(upload_to='movie_sources/', default="not available")
+    source_file = models.FileField(upload_to='movie_sources/', null=True, blank=True)
 
     def __str__(self):
         return self.name
