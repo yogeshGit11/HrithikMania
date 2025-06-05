@@ -1,0 +1,43 @@
+- name: Provision HritikMania App Server
+  hosts: hritikmania-server
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: '0755'
+    
+    - name: Add GitHub to known_hosts
+      ansible.builtin.known_hosts:
+        name: github.com
+        key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+        path: /home/ubuntu/.ssh/known_hosts
+        state: present
+
+    - name: Clone the project repo
+      git:
+        repo: git@github.com:yogeshGit11/HrithikMania.git
+        dest: /home/ubuntu/HritikMania
+      become: true
+      become_user: ubuntu
+
+    - name: Copy .env file to EC2
+      copy:
+        src: ../.env
+        dest: /home/ubuntu/HritikMania/.env
+
+    - name: Run docker-compose
+      shell: |
+        cd /home/ubuntu/HritikMania
+        docker-compose up -d
