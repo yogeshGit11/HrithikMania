@@ -6,6 +6,11 @@
     - name: Update apt cache
       apt:
         update_cache: yes
+    
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
 
     - name: Install Docker
       apt:
@@ -36,6 +41,14 @@
       copy:
         src: ../.env
         dest: /home/ubuntu/HritikMania/.env
+
+    - name: Copy .env files and csv file for docker compose
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      loop:
+        - { src: "../hritikmania-backend/.env", dest: "/home/ubuntu/HritikMania/hritikmania-backend/.env" }
+        - { src: "../hritikmania-backend/movies/movie_data.csv", dest: "/home/ubuntu/HritikMania/hritikmania-backend/movies/movie_data.csv" }
 
     - name: Run docker-compose
       shell: |
