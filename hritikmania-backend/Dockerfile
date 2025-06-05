@@ -12,4 +12,7 @@ COPY . /app/
 
 # RUN python manage.py collectstatic --noinput
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+#for local test
+#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
+
+CMD ["gunicorn", "hritikmania-backend.wsgi:application", "--bind", "0.0.0.0:8000"]
