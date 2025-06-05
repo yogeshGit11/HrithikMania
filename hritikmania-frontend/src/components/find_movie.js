@@ -9,7 +9,7 @@ export default function FindMovies() {
         e.preventDefault();
 
         axios
-            .get(`http://127.0.0.1:8000/api/movies/?search=${movieName}`)
+            .get(`${process.env.REACT_APP_API_BASE_URL}/api/movies/?search=${movieName}`)
             .then((response) => {
                 setMovieData(response.data);
             })
