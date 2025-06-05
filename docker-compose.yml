@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./hritikmania-backend
+    container_name: hritik-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./hritikmania-backend:/app
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  frontend:
+    build: ./hritikmania-frontend
+    container_name: hritik-frontend
+    ports:
+      - "3000:80"
+
+  db:
+    image: postgres
+    container_name: postgres-hritikmania
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+volumes:
+  postgres_data:
