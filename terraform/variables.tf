@@ -29,3 +29,7 @@ variable "my_ip" {
   description = "IP for SSH"
   type        = string
 }
+
+variable "environment" {
+  default = "production"
+}

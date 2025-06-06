@@ -52,3 +52,8 @@ resource "aws_instance" "hritikmania_ec2" {
     Name = "hritikmania-server"
   }
 }
+
+resource "aws_s3_bucket_policy" "media_bucket_policy" {
+  bucket = aws_s3_bucket.media_bucket.id
+  policy = file("${path.module}/s3_policy.json")
+}
