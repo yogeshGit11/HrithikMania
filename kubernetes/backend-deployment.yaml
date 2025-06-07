@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hritikmenia-backend
+  namespace: hritikmania
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hritikmenia-backend
+  template:
+    metadata:
+      labels:
+        app: hritikmenia-backend
+    spec:
+      containers:
+      - name: hritikmenia-backend-container
+        image: yogeshpc/hritikmenia-backend:latest
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: hritikmenia-backend-config
+        - secretRef:
+            name: hritikmenia-backend-secrets

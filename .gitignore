@@ -1,5 +1,41 @@
+# Environment files
 .env
+
+# Python virtual environments
+venv/
+.venv/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs and folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker-related files
+docker-compose.override.yml
+
+# Terraform files
 *.tfstate
 *.tfvars
-.terraform/
 *.tfstate.backup
+.terraform/
+
+# Ansible
+ansible/tmp/
+ansible/logs/
+
+# Kubernetes
+.kube/
+secret.yaml
+
+# Miscellaneous temporary files
+*.swp
+*.bak
+*.tmp

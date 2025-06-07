@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hritikmenia-frontend
+  namespace: hritikmania
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hritikmenia-frontend
+  template:
+    metadata:
+      labels:
+        app: hritikmenia-frontend
+    spec:
+      containers:
+      - name: hritikmenia-frontend-container
+        image: yogeshpc/hritikmenia-frontend:latest
+        ports:
+        - containerPort: 80

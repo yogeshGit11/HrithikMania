@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hritikmenia-backend-service
+  namespace: hritikmania
+spec:
+  selector:
+    app: hritikmenia-backend
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: NodePort

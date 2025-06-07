@@ -30,7 +30,7 @@ jobs:
         with:
           context: ./hritikmania-backend
           push: true
-          tags: yogeshpc/hritik-backend:latest
+          tags: yogeshpc/hritikmenia-backend:latest
       - name: Echo after Backend build
         run: echo "Backend image pushed...."
 
@@ -39,6 +39,6 @@ jobs:
         with:
           context: ./hritikmania-frontend
           push: true
-          tags: yogeshpc/hritik-frontend:latest
+          tags: yogeshpc/hritikmenia-frontend:latest
       - name: Echo after Frontend build
         run: echo "Frontend image pushed..."

@@ -10,9 +10,11 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /app/
 
-# RUN python manage.py collectstatic --noinput
-
 #for local test
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
 
-CMD ["gunicorn", "hritikmania-backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+#Run migrations, import movies, then start Gunicorn
+CMD bash -c "\
+    python manage.py migrate && \
+    python manage.py import_movies && \
+    gunicorn hritikmania-backend.wsgi:application --bind 0.0.0.0:8000"
