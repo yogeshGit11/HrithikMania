@@ -18,7 +18,7 @@ A full-stack fan-made website dedicated to Bollywood superstar **Hrithik Roshan*
 | Containerization | Docker, Docker Compose                               |
 | Orchestration    | Kubernetes (tested locally)                          |
 | Reverse Proxy    | Nginx (configured on EC2)                            |
-| CI/CD            | GitHub Actions Workflows, (planned) Jenkins          |
+| CI/CD            | GitHub Actions Workflows          |
 | Deployment       | GitHub Actions + Ansible                             |
 | DevOps Tools     | Docker, Ansible, Terraform, GitHub Actions           |
 
@@ -200,11 +200,15 @@ This is an extrnal site(https://hrxbrand.com/home)
 
 ## 📌 Future Scope
 
-* Add monitoring (Prometheus & Grafana)
-* Explore production-grade K8s with EKS
-* Integrate Jenkins for automation pipelines
-* UI Improvements — Improve responsiveness and design
+* ✅ Enable HTTPS — Secure the website with SSL/TLS by configuring HTTPS (using Nginx, Certbot)
 
+* 📈 Add monitoring (Prometheus & Grafana)
+
+* ☁️ Explore production-grade K8s with EKS
+
+* 🔁 Integrate Jenkins for automation pipelines
+
+* 🎨 UI Improvements — Improve responsiveness and design
 ---
 
 ## ⚖️ Disclaimer
