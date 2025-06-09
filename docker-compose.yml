@@ -14,7 +14,10 @@ services:
       - .env
 
   frontend:
-    build: ./hritikmania-frontend
+    build:
+      context: ./hritikmania-frontend
+      args:
+        REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
     container_name: hritik-frontend
     ports:
       - "3000:80"
