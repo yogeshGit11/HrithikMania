@@ -49,3 +49,8 @@
       loop:
         - { src: "../hritikmania-backend/.env", dest: "/home/ubuntu/HritikMania/hritikmania-backend/.env" }
         - { src: "../hritikmania-backend/movies/movie_data.csv", dest: "/home/ubuntu/HritikMania/hritikmania-backend/movies/movie_data.csv" }
+
+    - name: Start Docker Compose in detached mode
+      shell: docker-compose up -d
+      args:
+        chdir: /home/ubuntu/HritikMania
