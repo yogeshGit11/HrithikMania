@@ -192,10 +192,7 @@ Manifests include:
 #### 🌐 hrxbrand.com (external site)
 This is an extrnal site(https://hrxbrand.com/home)
 ![hrxbrand.com](screenshots/hrxbrand.com.png)
-#### ℹ️ About page
-![About page](screenshots/about.png)
-#### 👥 Follow page
-![Follow page](screenshots/follow.png)
+
 ---
 
 ## 📌 Future Scope

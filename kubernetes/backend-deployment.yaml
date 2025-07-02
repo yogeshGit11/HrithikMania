@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hritikmenia-backend-container
-        image: yogeshpc/hritikmenia-backend:latest
+        image: yogeshpc/hritikmania-backend:latest
         ports:
         - containerPort: 8000
         envFrom:

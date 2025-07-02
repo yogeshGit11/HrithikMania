@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: hritikmenia-frontend-container
-        image: yogeshpc/hritikmenia-frontend:latest
+        image: yogeshpc/hritikmania-frontend:latest
         ports:
         - containerPort: 80
