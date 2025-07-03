@@ -32,7 +32,7 @@
 
     - name: Clone the project repo
       git:
-        repo: git@github.com:yogeshGit11/HrithikMania.git
+        repo: https://github.com/yogeshGit11/HrithikMania.git
         dest: /home/ubuntu/HritikMania
       become: true
       become_user: ubuntu
