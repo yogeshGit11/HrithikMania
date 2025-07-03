@@ -24,6 +24,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Echo after Docker login
         run: echo "Docker login completed...."
+      
+      - name: Create movie_data.csv from secret
+        run: |
+          echo "${{ secrets.CSV_BASE64_MOVIE_DATA }}" | base64 -d > ./hritikmania-backend/movies/movie_data.csv
 
       - name: Build & Push Backend Image
         uses: docker/build-push-action@v5
