@@ -17,7 +17,7 @@ A full-stack fan-made website dedicated to Bollywood superstar **Hrithik Roshan*
 | Configuration    | Ansible, Terraform                                   |
 | Containerization | Docker, Docker Compose                               |
 | Orchestration    | Kubernetes (tested locally)                          |
-| Reverse Proxy    | Nginx (configured on EC2)                            |
+| Reverse Proxy    | Nginx (Dockerized, runs as container on EC2)         |
 | CI/CD            | GitHub Actions Workflows          |
 | Deployment       | GitHub Actions + Ansible                             |
 | DevOps Tools     | Docker, Ansible, Terraform, GitHub Actions           |
@@ -37,7 +37,7 @@ A full-stack fan-made website dedicated to Bollywood superstar **Hrithik Roshan*
 - ☸️ Kubernetes manifests (tested locally)
 - 🚀 CI/CD pipeline with GitHub Actions + Ansible
 - 🛡️ Infrastructure setup with Terraform
-- 🌐 Nginx reverse proxy to serve backend on EC2
+- 🌐 Nginx reverse proxy (Dockerized) to serve backend on EC2
 
 ---
 
@@ -77,26 +77,6 @@ HritikMania/
 │   └── homepage.png
 └── README.md
 ````
-
----
-
-## ⚙️ Setup Guide
-
-### 🐳 Docker Setup (Dev/Prod)
-
-```bash
-# Clone project
-git clone https://github.com/yogeshGit11/HritikMania.git
-cd HritikMania
-
-# Start the app (frontend + backend + db)
-docker-compose up --build -d
-```
-
-Access:
-
-* Frontend: `http://localhost:3000`
-* Backend API: `http://localhost:8000/api/`
 
 ---
 
@@ -149,11 +129,14 @@ ansible-playbook -i inventory.ini playbook.yml
 
 ## 🗂 Media Handling with AWS S3
 
-* Bucket used: `hritikmania-media`
-* Used for storing movie posters
-* Configured in Django using `boto3 + django-storages`
-* Public read access enabled via bucket policy
+- **Bucket used:** `hritikmania-media`  
+- **Purpose:** Stores movie poster images  
+- **Integration:** Configured in Django using `boto3` + `django-storages`  
+- **Access:** Public read access enabled via bucket policy  
+- **Manual Upload:** Movie posters are manually uploaded using the AWS CLI:
 
+  ```bash
+  aws s3 cp movie_posters/ s3://hritikmania-media/movie_posters/ --recursive
 ---
 
 ## ☸️ Kubernetes Setup (Local Only)
@@ -173,13 +156,13 @@ Manifests include:
 
 ---
 
-## 🌐 Nginx Reverse Proxy (on EC2)
-* Nginx is installed and configured directly on the EC2 instance (outside the Django project) to act as a reverse proxy.
+## 🌐 Nginx Reverse Proxy (Dockerized on EC2)
+* Nginx runs as a Docker container on the EC2 instance and acts as a reverse proxy.
 
 * It forwards traffic from:
 
   * `http://<ec2-ip>/api/` → Django container
-* Serves as a secure and production-like interface to backend.
+* Serves as a secure and production-like interface to backend while being fully containerized.
 
 
 ---
@@ -202,8 +185,6 @@ This is an extrnal site(https://hrxbrand.com/home)
 * 📈 Add monitoring (Prometheus & Grafana)
 
 * ☁️ Explore production-grade K8s with EKS
-
-* 🔁 Integrate Jenkins for automation pipelines
 
 * 🎨 UI Improvements — Improve responsiveness and design
 ---
