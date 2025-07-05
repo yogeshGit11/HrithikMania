@@ -1,7 +1,7 @@
 FROM python:3.10-slim
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
@@ -14,7 +14,6 @@ COPY . /app/
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
 
 #Run migrations, import movies, then start Gunicorn
-CMD bash -c "\
-    python manage.py migrate && \
-    python manage.py import_movies && \
-    gunicorn hritikmania-backend.wsgi:application --bind 0.0.0.0:8000"
+RUN chmod +x /app/entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]
